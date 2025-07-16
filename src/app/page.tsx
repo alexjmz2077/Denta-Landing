@@ -320,8 +320,8 @@ export default function DentaSoftwareLanding() {
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600">
-                  "DentaSoftware ha revolucionado mi consultorio. Ahorro más de 4 horas diarias en tareas
-                  administrativas y mis pacientes están más satisfechos con el servicio."
+                   &quot;DentaSoftware ha revolucionado mi consultorio. Ahorro más de 4 horas diarias en tareas
+                  administrativas y mis pacientes están más satisfechos con el servicio. &quot;
                 </p>
               </CardContent>
             </Card>
@@ -348,8 +348,8 @@ export default function DentaSoftwareLanding() {
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600">
-                  "La gestión de tratamientos de ortodoncia nunca fue tan fácil. El seguimiento de pacientes y la
-                  facturación automática son increíbles."
+                  &quot;La gestión de tratamientos de ortodoncia nunca fue tan fácil. El seguimiento de pacientes y la
+                  facturación automática son increíbles.&quot;
                 </p>
               </CardContent>
             </Card>
@@ -376,8 +376,8 @@ export default function DentaSoftwareLanding() {
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600">
-                  "Gestiono 3 consultorios con DentaSoftware. La sincronización en tiempo real y los reportes
-                  financieros me permiten tomar mejores decisiones."
+                  &quot;Gestiono 3 consultorios con DentaSoftware. La sincronización en tiempo real y los reportes
+                  financieros me permiten tomar mejores decisiones.&quot;
                 </p>
               </CardContent>
             </Card>

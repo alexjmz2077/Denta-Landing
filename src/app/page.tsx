@@ -60,9 +60,8 @@ export default function DentaSoftwareLanding() {
                 variant="outline"
                 className="border-[#031749] text-[#031749] hover:bg-[#031749] hover:text-white bg-transparent"
               >
-                Iniciar Sesión
+                Agenda una Demo
               </Button>
-              <Button className="bg-[#031749] hover:bg-[#031749]/90">Demo Gratuita</Button>
             </div>
           </div>
         </div>
@@ -118,7 +117,7 @@ export default function DentaSoftwareLanding() {
                   alt="DentaSoftware Dashboard"
                   width={600}
                   height={400}
-                  className="rounded-lg"
+                  className="rounded-lg w-full h-auto"
                 />
               </div>
             </div>

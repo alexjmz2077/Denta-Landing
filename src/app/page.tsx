@@ -249,7 +249,7 @@ export default function DentaSoftwareLanding() {
                 alt="Funcionalidades DentaSoftware"
                 width={600}
                 height={500}
-                className="rounded-2xl shadow-xl"
+                className="rounded-2xl shadow-xl w-full h-auto"
               />
             </div>
           </div>

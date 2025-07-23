@@ -985,7 +985,7 @@ export default function DentaSoftwareLanding() {
             <section>
               <h3 className="text-lg font-semibold text-[#031749] mb-3">8. Limitación de Responsabilidad</h3>
               <p className="mb-4">
-                DentaSoftware se proporciona "tal como está". No garantizamos que el servicio sea ininterrumpido o libre
+                DentaSoftware se proporciona tal como está. No garantizamos que el servicio sea ininterrumpido o libre
                 de errores. Nuestra responsabilidad se limita al monto pagado por el servicio en los últimos 12 meses.
               </p>
             </section>

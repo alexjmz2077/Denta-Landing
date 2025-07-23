@@ -1,3 +1,5 @@
+"use client";
+
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
@@ -27,8 +29,13 @@ import {
 } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
+import { useState } from "react"
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 
 export default function DentaSoftwareLanding() {
+  const [showTerms, setShowTerms] = useState(false)
+  const [showPrivacy, setShowPrivacy] = useState(false)
+
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
@@ -56,12 +63,14 @@ export default function DentaSoftwareLanding() {
               </Link>
             </nav>
             <div className="flex items-center space-x-4">
-              <Button
-                variant="outline"
-                className="border-[#031749] text-[#031749] hover:bg-[#031749] hover:text-white bg-transparent"
-              >
-                Agenda una Demo
-              </Button>
+              <Link href="https://wa.me/593978847401" passHref>
+                <Button
+                  variant="outline"
+                  className="border-[#031749] text-[#031749] hover:bg-[#031749] hover:text-white bg-transparent"
+                >
+                  Agenda una Demo
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
@@ -80,26 +89,23 @@ export default function DentaSoftwareLanding() {
               </h1>
               <p className="text-xl mb-8 text-blue-100 leading-relaxed">
                 DentaSoftware es la solución integral que necesitas para optimizar la administración de tu práctica
-                dental. Agenda, historiales, facturación y más en una sola plataforma.
+                dental. Agenda, historiales y más en una sola plataforma.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="bg-white text-[#031749] hover:bg-gray-100 text-lg px-8 py-4">
+                { /* <Button size="lg" className="bg-white text-[#031749] hover:bg-gray-100 text-lg px-8 py-4">
                   <Play className="mr-2 h-5 w-5" />
                   Ver Demo en Vivo
-                </Button>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="border-white text-white hover:bg-white hover:text-[#031749] text-lg px-8 py-4 bg-transparent"
-                >
-                  Prueba Gratuita 30 Días
-                </Button>
+                </Button> */}
+                <Link href="https://wa.me/593978847401" passHref>
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="border-white text-white hover:bg-white hover:text-[#031749] text-lg px-8 py-4 bg-transparent">
+                    Agenda una Prueba Gratuita
+                  </Button>
+                </Link>
               </div>
               <div className="mt-8 flex items-center space-x-6 text-sm text-blue-200">
-                <div className="flex items-center">
-                  <CheckCircle className="h-4 w-4 mr-2" />
-                  Sin permanencia
-                </div>
                 <div className="flex items-center">
                   <CheckCircle className="h-4 w-4 mr-2" />
                   Soporte 24/7
@@ -131,8 +137,7 @@ export default function DentaSoftwareLanding() {
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-[#031749] mb-4">¿Por qué elegir DentaSoftware?</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Más de 5,000 consultorios dentales confían en nuestra plataforma para optimizar su gestión diaria y
-              mejorar la experiencia de sus pacientes.
+              Únete a la nueva generación de consultorios dentales que están transformando su gestión con nuestra plataforma. Simplifica procesos y ofrece una experiencia excepcional a tus pacientes. 
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
@@ -141,7 +146,7 @@ export default function DentaSoftwareLanding() {
                 <div className="w-16 h-16 bg-[#031749] rounded-full flex items-center justify-center mx-auto mb-4">
                   <Zap className="h-8 w-8 text-white" />
                 </div>
-                <CardTitle className="text-[#031749]">Ahorra 5+ horas diarias</CardTitle>
+                <CardTitle className="text-[#031749]">Ahorra Tiempo</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600">
@@ -154,7 +159,7 @@ export default function DentaSoftwareLanding() {
                 <div className="w-16 h-16 bg-[#031749] rounded-full flex items-center justify-center mx-auto mb-4">
                   <BarChart3 className="h-8 w-8 text-white" />
                 </div>
-                <CardTitle className="text-[#031749]">Aumenta ingresos 30%</CardTitle>
+                <CardTitle className="text-[#031749]">Aumenta ingresos</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600">
@@ -201,8 +206,7 @@ export default function DentaSoftwareLanding() {
                 <div>
                   <h3 className="text-xl font-semibold text-[#031749] mb-2">Agenda Inteligente</h3>
                   <p className="text-gray-600">
-                    Gestiona citas con recordatorios automáticos, control de disponibilidad y sincronización en tiempo
-                    real.
+                    Gestiona citas con recordatorios automáticos y sincronización en tiempo real.
                   </p>
                 </div>
               </div>
@@ -213,12 +217,11 @@ export default function DentaSoftwareLanding() {
                 <div>
                   <h3 className="text-xl font-semibold text-[#031749] mb-2">Historiales Digitales</h3>
                   <p className="text-gray-600">
-                    Almacena y accede a historiales clínicos completos con imágenes, radiografías y notas de
-                    tratamiento.
+                    Almacena y accede a historiales clínicos completos con Antecedentes, Odontogramas, Examen Estomatognático y más.
                   </p>
                 </div>
               </div>
-              <div className="flex items-start space-x-4 p-6 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer">
+              { /*<div className="flex items-start space-x-4 p-6 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer">
                 <div className="w-12 h-12 bg-[#031749] rounded-lg flex items-center justify-center flex-shrink-0">
                   <CreditCard className="h-6 w-6 text-white" />
                 </div>
@@ -229,7 +232,7 @@ export default function DentaSoftwareLanding() {
                     completo.
                   </p>
                 </div>
-              </div>
+              </div> */}
               <div className="flex items-start space-x-4 p-6 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer">
                 <div className="w-12 h-12 bg-[#031749] rounded-lg flex items-center justify-center flex-shrink-0">
                   <Users className="h-6 w-6 text-white" />
@@ -237,8 +240,7 @@ export default function DentaSoftwareLanding() {
                 <div>
                   <h3 className="text-xl font-semibold text-[#031749] mb-2">Gestión de Pacientes</h3>
                   <p className="text-gray-600">
-                    Base de datos completa con información de contacto, historial de visitas y preferencias de cada
-                    paciente.
+                    Base de datos completa con información de cada paciente.
                   </p>
                 </div>
               </div>
@@ -292,7 +294,7 @@ export default function DentaSoftwareLanding() {
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-[#031749] mb-4">Lo que dicen nuestros clientes</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Más de 5,000 profesionales dentales han transformado su práctica con DentaSoftware.
+              Muchos profesionales dentales han transformado su práctica con DentaSoftware.
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
@@ -301,14 +303,14 @@ export default function DentaSoftwareLanding() {
                 <div className="flex items-center space-x-4">
                   <Image
                     src="/placeholder.svg?height=60&width=60"
-                    alt="Dr. María González"
+                    alt="Dr. Moises Laguatasig"
                     width={60}
                     height={60}
                     className="rounded-full"
                   />
                   <div>
-                    <CardTitle className="text-[#031749]">Dr. María González</CardTitle>
-                    <CardDescription>Odontóloga General - Madrid</CardDescription>
+                    <CardTitle className="text-[#031749]">Dr. Moises Laguatasig</CardTitle>
+                    <CardDescription>Odontólogo General - Macas</CardDescription>
                   </div>
                 </div>
                 <div className="flex text-yellow-400">
@@ -329,14 +331,14 @@ export default function DentaSoftwareLanding() {
                 <div className="flex items-center space-x-4">
                   <Image
                     src="/placeholder.svg?height=60&width=60"
-                    alt="Dr. Carlos Ruiz"
+                    alt="Dra. "
                     width={60}
                     height={60}
                     className="rounded-full"
                   />
                   <div>
-                    <CardTitle className="text-[#031749]">Dr. Carlos Ruiz</CardTitle>
-                    <CardDescription>Ortodoncista - Barcelona</CardDescription>
+                    <CardTitle className="text-[#031749]">Dra. </CardTitle>
+                    <CardDescription>Odontóloga General - Cuenca</CardDescription>
                   </div>
                 </div>
                 <div className="flex text-yellow-400">
@@ -347,8 +349,7 @@ export default function DentaSoftwareLanding() {
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600">
-                  &quot;La gestión de tratamientos de ortodoncia nunca fue tan fácil. El seguimiento de pacientes y la
-                  facturación automática son increíbles.&quot;
+                  &quot;La gestión de tratamientos de ortodoncia nunca fue tan fácil. La web es increíble.&quot;
                 </p>
               </CardContent>
             </Card>
@@ -364,7 +365,7 @@ export default function DentaSoftwareLanding() {
                   />
                   <div>
                     <CardTitle className="text-[#031749]">Dra. Ana Martín</CardTitle>
-                    <CardDescription>Directora Clínica Dental - Valencia</CardDescription>
+                    <CardDescription>Directora Clínica Dental - Macas</CardDescription>
                   </div>
                 </div>
                 <div className="flex text-yellow-400">
@@ -399,7 +400,7 @@ export default function DentaSoftwareLanding() {
                 <CardTitle className="text-2xl text-[#031749]">Básico</CardTitle>
                 <CardDescription>Perfecto para consultorios pequeños</CardDescription>
                 <div className="mt-4">
-                  <span className="text-4xl font-bold text-[#031749]">€49</span>
+                  <span className="text-4xl font-bold text-[#031749]">$49</span>
                   <span className="text-gray-600">/mes</span>
                 </div>
               </CardHeader>
@@ -412,13 +413,10 @@ export default function DentaSoftwareLanding() {
                   <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
                   <span>Agenda básica</span>
                 </div>
+                
                 <div className="flex items-center">
                   <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
-                  <span>Historiales digitales</span>
-                </div>
-                <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
-                  <span>Facturación simple</span>
+                  <span>Historial clinico digital</span>
                 </div>
                 <div className="flex items-center">
                   <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
@@ -433,7 +431,7 @@ export default function DentaSoftwareLanding() {
                 <CardTitle className="text-2xl text-[#031749]">Profesional</CardTitle>
                 <CardDescription>Ideal para consultorios en crecimiento</CardDescription>
                 <div className="mt-4">
-                  <span className="text-4xl font-bold text-[#031749]">€99</span>
+                  <span className="text-4xl font-bold text-[#031749]">$99</span>
                   <span className="text-gray-600">/mes</span>
                 </div>
               </CardHeader>
@@ -452,11 +450,7 @@ export default function DentaSoftwareLanding() {
                 </div>
                 <div className="flex items-center">
                   <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
-                  <span>Facturación automática</span>
-                </div>
-                <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
-                  <span>Reportes financieros</span>
+                  <span>Recordatorios a pacientes</span>
                 </div>
                 <div className="flex items-center">
                   <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
@@ -470,7 +464,7 @@ export default function DentaSoftwareLanding() {
                 <CardTitle className="text-2xl text-[#031749]">Enterprise</CardTitle>
                 <CardDescription>Para clínicas y múltiples consultorios</CardDescription>
                 <div className="mt-4">
-                  <span className="text-4xl font-bold text-[#031749]">€199</span>
+                  <span className="text-4xl font-bold text-[#031749]">$199</span>
                   <span className="text-gray-600">/mes</span>
                 </div>
               </CardHeader>
@@ -485,10 +479,6 @@ export default function DentaSoftwareLanding() {
                 </div>
                 <div className="flex items-center">
                   <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
-                  <span>API personalizada</span>
-                </div>
-                <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
                   <span>Integraciones avanzadas</span>
                 </div>
                 <div className="flex items-center">
@@ -499,7 +489,7 @@ export default function DentaSoftwareLanding() {
                   <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
                   <span>Gerente de cuenta dedicado</span>
                 </div>
-                <Button className="w-full mt-6 bg-[#031749] hover:bg-[#031749]/90">Contactar Ventas</Button>
+                <Button className="w-full mt-6 bg-[#031749] hover:bg-[#031749]/90">Comenzar Prueba Gratuita</Button>
               </CardContent>
             </Card>
           </div>
@@ -583,8 +573,7 @@ export default function DentaSoftwareLanding() {
                 </AccordionTrigger>
                 <AccordionContent className="text-gray-600">
                   La prueba gratuita incluye acceso completo a todas las funcionalidades del plan Profesional, soporte
-                  técnico completo, migración de datos gratuita y capacitación personalizada para tu equipo. No se
-                  requiere tarjeta de crédito para comenzar.
+                  técnico completo y capacitación personalizada. No se requiere tarjeta de crédito para comenzar.
                 </AccordionContent>
               </AccordionItem>
               <AccordionItem value="item-2" className="border rounded-lg px-6">
@@ -592,9 +581,7 @@ export default function DentaSoftwareLanding() {
                   ¿Mis datos están seguros con DentaSoftware?
                 </AccordionTrigger>
                 <AccordionContent className="text-gray-600">
-                  Absolutamente. Utilizamos encriptación de grado militar, cumplimos con GDPR y LOPD, realizamos copias
-                  de seguridad automáticas diarias y nuestros servidores están ubicados en centros de datos certificados
-                  en Europa.
+                  Absolutamente. Utilizamos encriptación y realizamos copias de seguridad automáticas.
                 </AccordionContent>
               </AccordionItem>
               <AccordionItem value="item-3" className="border rounded-lg px-6">
@@ -603,7 +590,7 @@ export default function DentaSoftwareLanding() {
                 </AccordionTrigger>
                 <AccordionContent className="text-gray-600">
                   Sí, puedes actualizar o cambiar tu plan en cualquier momento. Los cambios se aplican inmediatamente y
-                  solo pagas la diferencia prorrateada. No hay penalizaciones por cambios de plan.
+                  solo pagas la diferencia. No hay penalizaciones por cambios de plan.
                 </AccordionContent>
               </AccordionItem>
               <AccordionItem value="item-4" className="border rounded-lg px-6">
@@ -611,8 +598,7 @@ export default function DentaSoftwareLanding() {
                   ¿Ofrecen capacitación para mi equipo?
                 </AccordionTrigger>
                 <AccordionContent className="text-gray-600">
-                  Sí, incluimos capacitación completa para todo tu equipo. Ofrecemos sesiones en vivo, materiales de
-                  entrenamiento, videos tutoriales y soporte continuo para asegurar que aproveches al máximo
+                  Sí, incluimos capacitación completa para todo tu equipo. Ofrecemos sesiones en vivo, videos tutoriales y soporte continuo para asegurar que aproveches al máximo
                   DentaSoftware.
                 </AccordionContent>
               </AccordionItem>
@@ -621,8 +607,7 @@ export default function DentaSoftwareLanding() {
                   ¿Qué pasa si necesito cancelar mi suscripción?
                 </AccordionTrigger>
                 <AccordionContent className="text-gray-600">
-                  Puedes cancelar en cualquier momento sin penalizaciones. Te ayudamos a exportar todos tus datos en
-                  formatos estándar y mantenemos tu información disponible por 90 días adicionales por si cambias de
+                  Puedes cancelar en cualquier momento sin penalizaciones. Mantenemos tu información disponible por 30 días adicionales por si cambias de
                   opinión.
                 </AccordionContent>
               </AccordionItem>
@@ -637,11 +622,10 @@ export default function DentaSoftwareLanding() {
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Seguridad y Garantías</h2>
             <p className="text-xl text-blue-200 max-w-3xl mx-auto">
-              Tu tranquilidad y la de tus pacientes es nuestra prioridad. Cumplimos con los más altos estándares de
-              seguridad.
+              Tu tranquilidad y la de tus pacientes es nuestra prioridad.
             </p>
           </div>
-          <div className="grid md:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center">
               <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Lock className="h-8 w-8 text-white" />
@@ -649,19 +633,19 @@ export default function DentaSoftwareLanding() {
               <h3 className="text-xl font-semibold text-white mb-2">Encriptación SSL</h3>
               <p className="text-blue-200">Todos los datos se transmiten con encriptación de 256 bits</p>
             </div>
-            <div className="text-center">
+            { /*<div className="text-center">
               <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Shield className="h-8 w-8 text-white" />
               </div>
               <h3 className="text-xl font-semibold text-white mb-2">GDPR Compliant</h3>
               <p className="text-blue-200">Cumplimiento total con regulaciones europeas de protección de datos</p>
-            </div>
+            </div> */}
             <div className="text-center">
               <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Database className="h-8 w-8 text-white" />
               </div>
               <h3 className="text-xl font-semibold text-white mb-2">Backup Automático</h3>
-              <p className="text-blue-200">Copias de seguridad automáticas cada 6 horas en múltiples ubicaciones</p>
+              <p className="text-blue-200">Copias de seguridad automáticas</p>
             </div>
             <div className="text-center">
               <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -679,24 +663,26 @@ export default function DentaSoftwareLanding() {
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">¿Listo para transformar tu consultorio?</h2>
           <p className="text-xl text-blue-200 mb-8 max-w-3xl mx-auto">
-            Únete a más de 5,000 profesionales dentales que ya optimizaron su práctica con DentaSoftware. Comienza tu
-            prueba gratuita hoy mismo.
+            Transforma y digitaliza tu consultorio con DentaSoftware. <br></br>
+            Comienza tu prueba gratuita hoy mismo.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-white text-[#031749] hover:bg-gray-100 text-lg px-8 py-4">
-              <Play className="mr-2 h-5 w-5" />
-              Solicitar Demo Personalizada
-            </Button>
-            <Button
+            <Link href="https://wa.me/593978847401" passHref>
+              <Button size="lg" className="bg-white text-[#031749] hover:bg-gray-100 text-lg px-8 py-4">
+                <Play className="mr-2 h-5 w-5" />
+                Solicitar Demo Personalizada
+              </Button>
+            </Link>
+            { /* <Button
               size="lg"
               variant="outline"
               className="border-white text-white hover:bg-white hover:text-[#031749] text-lg px-8 py-4 bg-transparent"
             >
               Comenzar Prueba Gratuita
-            </Button>
+            </Button> */}
           </div>
           <p className="text-sm text-blue-300 mt-6">
-            ✓ Sin permanencia ✓ Migración gratuita ✓ Soporte 24/7 ✓ 30 días gratis
+            ✓ Sin permanencia ✓ Migración ✓ Soporte 24/7 ✓ 30 días gratis
           </p>
         </div>
       </section>
@@ -707,7 +693,7 @@ export default function DentaSoftwareLanding() {
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-[#031749] mb-4">¿Tienes preguntas? Contáctanos</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Nuestro equipo de expertos está listo para ayudarte a encontrar la mejor solución para tu consultorio
+              Nuestro equipo está listo para ayudarte a encontrar la mejor solución para tu consultorio
               dental.
             </p>
           </div>
@@ -726,7 +712,7 @@ export default function DentaSoftwareLanding() {
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">Teléfono *</label>
-                      <Input placeholder="+34 600 000 000" />
+                      <Input placeholder="+593 900 000 000" />
                     </div>
                   </div>
                   <div>
@@ -762,8 +748,8 @@ export default function DentaSoftwareLanding() {
                     </div>
                     <div>
                       <h4 className="font-semibold text-[#031749]">Teléfono</h4>
-                      <p className="text-gray-600">+34 900 123 456</p>
-                      <p className="text-sm text-gray-500">Lunes a Viernes: 9:00 - 18:00</p>
+                      <p className="text-gray-600">+593 97 884 7401</p>
+                      <p className="text-sm text-gray-500">Lunes a Viernes: 8:00 - 18:00</p>
                     </div>
                   </div>
                   <div className="flex items-start space-x-4">
@@ -772,11 +758,11 @@ export default function DentaSoftwareLanding() {
                     </div>
                     <div>
                       <h4 className="font-semibold text-[#031749]">Email</h4>
-                      <p className="text-gray-600">hola@dentasoftware.com</p>
-                      <p className="text-sm text-gray-500">Respuesta en menos de 2 horas</p>
+                      <p className="text-gray-600">info@dentasoftware.com</p>
+                      { /* <p className="text-sm text-gray-500">Respuesta en menos de 2 horas</p> */}
                     </div>
                   </div>
-                  <div className="flex items-start space-x-4">
+                  { /* <div className="flex items-start space-x-4">
                     <div className="w-12 h-12 bg-[#031749] rounded-lg flex items-center justify-center flex-shrink-0">
                       <MapPin className="h-6 w-6 text-white" />
                     </div>
@@ -785,18 +771,19 @@ export default function DentaSoftwareLanding() {
                       <p className="text-gray-600">Calle Serrano 123, 28006 Madrid</p>
                       <p className="text-sm text-gray-500">Visitas con cita previa</p>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               </div>
               <div className="bg-[#031749] rounded-2xl p-8 text-white">
                 <h4 className="text-xl font-bold mb-4">¿Necesitas ayuda urgente?</h4>
                 <p className="mb-4">Nuestro equipo de soporte técnico está disponible 24/7 para clientes actuales.</p>
+                <Link href="https://wa.me/593978847401" passHref>
                 <Button
                   variant="outline"
-                  className="border-white text-white hover:bg-white hover:text-[#031749] bg-transparent"
-                >
+                  className="border-white text-white hover:bg-white hover:text-[#031749] bg-transparent">
                   Soporte Técnico 24/7
                 </Button>
+                </Link>
               </div>
             </div>
           </div>
@@ -815,39 +802,33 @@ export default function DentaSoftwareLanding() {
                 <span className="text-xl font-bold">DentaSoftware</span>
               </div>
               <p className="text-blue-200 mb-4">
-                La solución integral para la gestión de consultorios dentales. Más de 5,000 profesionales confían en
-                nosotros.
+                La solución integral para la gestión de consultorios dentales. 
               </p>
-              <div className="flex space-x-4">
+              { /* <div className="flex space-x-4">
                 <Badge variant="secondary" className="bg-white/20 text-white">
                   ISO 27001
                 </Badge>
                 <Badge variant="secondary" className="bg-white/20 text-white">
                   GDPR
                 </Badge>
-              </div>
+              </div> */}
             </div>
             <div>
               <h4 className="font-semibold mb-4">Producto</h4>
               <ul className="space-y-2 text-blue-200">
                 <li>
-                  <Link href="#" className="hover:text-white transition-colors">
+                  <Link href="#funcionalidades" className="hover:text-white transition-colors">
                     Funcionalidades
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="hover:text-white transition-colors">
+                  <Link href="#precios" className="hover:text-white transition-colors">
                     Precios
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="hover:text-white transition-colors">
-                    Integraciones
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="hover:text-white transition-colors">
-                    Seguridad
+                  <Link href="#testimonios" className="hover:text-white transition-colors">
+                    Testimonios
                   </Link>
                 </li>
               </ul>
@@ -908,19 +889,229 @@ export default function DentaSoftwareLanding() {
               © {new Date().getFullYear()} DentaSoftware. Todos los derechos reservados.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
-              <Link href="#" className="text-blue-200 hover:text-white text-sm transition-colors">
+              <button
+                className="text-blue-200 hover:text-white text-sm transition-colors underline"
+                onClick={() => setShowTerms(true)}
+                type="button"
+              >
                 Términos de Servicio
-              </Link>
-              <Link href="#" className="text-blue-200 hover:text-white text-sm transition-colors">
+              </button>
+              <button
+                className="text-blue-200 hover:text-white text-sm transition-colors underline"
+                onClick={() => setShowPrivacy(true)}
+                type="button"
+              >
                 Política de Privacidad
-              </Link>
-              <Link href="#" className="text-blue-200 hover:text-white text-sm transition-colors">
-                Cookies
-              </Link>
+              </button>
             </div>
           </div>
         </div>
       </footer>
+
+      {/* Popup Términos de Servicio */}
+      <Dialog open={showTerms} onOpenChange={setShowTerms}>
+        <DialogContent className="max-w-4xl max-h-[80vh] overflow-y-auto">
+          <DialogHeader>
+            <DialogTitle className="text-2xl font-bold text-[#031749] mb-4">
+              Términos de Servicio - DentaSoftware
+            </DialogTitle>
+            <DialogDescription className="text-gray-600">
+              Última actualización: {new Date().toLocaleDateString("es-ES")}
+            </DialogDescription>
+          </DialogHeader>
+          <div className="space-y-6 text-gray-700">
+            <section>
+              <h3 className="text-lg font-semibold text-[#031749] mb-3">1. Aceptación de los Términos</h3>
+              <p className="mb-4">
+                Al acceder y utilizar DentaSoftware, usted acepta estar sujeto a estos Términos de Servicio y todas las
+                leyes y regulaciones aplicables. Si no está de acuerdo con alguno de estos términos, no debe utilizar
+                este servicio.
+              </p>
+            </section>
+            <section>
+              <h3 className="text-lg font-semibold text-[#031749] mb-3">2. Descripción del Servicio</h3>
+              <p className="mb-4">
+                DentaSoftware es una plataforma SaaS (Software as a Service) diseñada para la gestión integral de
+                consultorios dentales, que incluye pero no se limita a:
+              </p>
+              <ul className="list-disc list-inside ml-4 space-y-2">
+                <li>Gestión de citas y agenda</li>
+                <li>Historiales clínicos digitales</li>
+                <li>Gestión de pacientes</li>
+              </ul>
+            </section>
+            <section>
+              <h3 className="text-lg font-semibold text-[#031749] mb-3">3. Registro y Cuenta de Usuario</h3>
+              <p className="mb-4">
+                Para utilizar DentaSoftware, debe crear una cuenta proporcionando información precisa y completa. Usted
+                es responsable de mantener la confidencialidad de su cuenta y contraseña, y de todas las actividades que
+                ocurran bajo su cuenta.
+              </p>
+            </section>
+            <section>
+              <h3 className="text-lg font-semibold text-[#031749] mb-3">4. Uso Aceptable</h3>
+              <p className="mb-4">
+                Usted se compromete a utilizar DentaSoftware únicamente para fines legales y de acuerdo con estos
+                términos. No debe:
+              </p>
+              <ul className="list-disc list-inside ml-4 space-y-2">
+                <li>Violar cualquier ley o regulación aplicable</li>
+                <li>Interferir con el funcionamiento del servicio</li>
+                <li>Intentar acceder a datos de otros usuarios</li>
+                <li>Utilizar el servicio para actividades fraudulentas</li>
+              </ul>
+            </section>
+            <section>
+              <h3 className="text-lg font-semibold text-[#031749] mb-3">5. Privacidad y Protección de Datos</h3>
+              <p className="mb-4">
+                Nos comprometemos a proteger su privacidad y la de sus pacientes. El tratamiento de datos personales se
+                rige por nuestra Política de Privacidad.
+              </p>
+            </section>
+            <section>
+              <h3 className="text-lg font-semibold text-[#031749] mb-3">6. Facturación y Pagos</h3>
+              <p className="mb-4">
+                Los pagos se procesan mensualmente por adelantado. Los precios pueden cambiar con un aviso previo de 30
+                días. El incumplimiento de pago puede resultar en la suspensión del servicio.
+              </p>
+            </section>
+            <section>
+              <h3 className="text-lg font-semibold text-[#031749] mb-3">7. Cancelación</h3>
+              <p className="mb-4">
+                Puede cancelar su suscripción en cualquier momento. La cancelación será efectiva al final del período de
+                facturación actual. Los datos se mantendrán disponibles por 30 días adicionales.
+              </p>
+            </section>
+            <section>
+              <h3 className="text-lg font-semibold text-[#031749] mb-3">8. Limitación de Responsabilidad</h3>
+              <p className="mb-4">
+                DentaSoftware se proporciona "tal como está". No garantizamos que el servicio sea ininterrumpido o libre
+                de errores. Nuestra responsabilidad se limita al monto pagado por el servicio en los últimos 12 meses.
+              </p>
+            </section>
+            <section>
+              <h3 className="text-lg font-semibold text-[#031749] mb-3">9. Modificaciones</h3>
+              <p className="mb-4">
+                Nos reservamos el derecho de modificar estos términos en cualquier momento. 
+              </p>
+            </section>
+            <section>
+              <h3 className="text-lg font-semibold text-[#031749] mb-3">10. Contacto</h3>
+              <p className="mb-4">
+                Para cualquier consulta sobre estos términos, puede contactarnos en:
+                <br />
+                Email: info@dentasoftware.com
+                <br />
+                Teléfono: +593 97 884 7401
+              </p>
+            </section>
+          </div>
+        </DialogContent>
+      </Dialog>
+
+      {/* Popup Política de Privacidad */}
+      <Dialog open={showPrivacy} onOpenChange={setShowPrivacy}>
+        <DialogContent className="max-w-4xl max-h-[80vh] overflow-y-auto">
+          <DialogHeader>
+            <DialogTitle className="text-2xl font-bold text-[#031749] mb-4">
+              Política de Privacidad - DentaSoftware
+            </DialogTitle>
+            <DialogDescription className="text-gray-600">
+              Última actualización: {new Date().toLocaleDateString("es-ES")}
+            </DialogDescription>
+          </DialogHeader>
+          <div className="space-y-6 text-gray-700">
+            <section>
+              <h3 className="text-lg font-semibold text-[#031749] mb-3">1. Información que Recopilamos</h3>
+              <p className="mb-4">Recopilamos información que usted nos proporciona directamente, incluyendo:</p>
+              <ul className="list-disc list-inside ml-4 space-y-2">
+                <li>Información de registro (nombre, email, teléfono)</li>
+                <li>Datos de pacientes que usted ingresa en el sistema</li>
+                <li>Comunicaciones con nuestro equipo de soporte</li>
+              </ul>
+            </section>
+            <section>
+              <h3 className="text-lg font-semibold text-[#031749] mb-3">2. Cómo Utilizamos su Información</h3>
+              <p className="mb-4">Utilizamos la información recopilada para:</p>
+              <ul className="list-disc list-inside ml-4 space-y-2">
+                <li>Proporcionar y mantener nuestro servicio</li>
+                <li>Enviar comunicaciones importantes sobre el servicio</li>
+                <li>Proporcionar soporte técnico</li>
+                <li>Mejorar nuestros servicios</li>
+                <li>Cumplir con obligaciones legales</li>
+              </ul>
+            </section>
+            <section>
+              <h3 className="text-lg font-semibold text-[#031749] mb-3">3. Protección de Datos de Pacientes</h3>
+              <p className="mb-4">
+                Entendemos la sensibilidad de los datos médicos y implementamos medidas especiales de protección:
+              </p>
+              <ul className="list-disc list-inside ml-4 space-y-2">
+                <li>Encriptación de extremo a extremo para todos los datos médicos</li>
+                <li>Acceso restringido solo a personal autorizado</li>
+              </ul>
+            </section>
+            <section>
+              <h3 className="text-lg font-semibold text-[#031749] mb-3">4. Compartir Información</h3>
+              <p className="mb-4">
+                No vendemos, alquilamos o compartimos su información personal con terceros, excepto en las siguientes
+                circunstancias:
+              </p>
+              <ul className="list-disc list-inside ml-4 space-y-2">
+                <li>Con su consentimiento explícito</li>
+                <li>Para cumplir con obligaciones legales</li>
+                <li>
+                  Con proveedores de servicios que nos ayudan a operar (bajo estrictos acuerdos de confidencialidad)
+                </li>
+                <li>En caso de fusión o adquisición empresarial</li>
+              </ul>
+            </section>
+            <section>
+              <h3 className="text-lg font-semibold text-[#031749] mb-3">5. Seguridad de Datos</h3>
+              <p className="mb-4">Implementamos medidas de seguridad técnicas y organizativas apropiadas:</p>
+              <ul className="list-disc list-inside ml-4 space-y-2">
+                <li>Encriptación SSL/TLS para todas las transmisiones</li>
+                <li>Encriptación AES-256 para datos almacenados</li>
+                <li>Monitoreo continuo de seguridad</li>
+                <li>Copias de seguridad automáticas y cifradas</li>
+              </ul>
+            </section>
+          
+            <section>
+              <h3 className="text-lg font-semibold text-[#031749] mb-3">6. Retención de Datos</h3>
+              <p className="mb-4">
+                Conservamos sus datos personales solo durante el tiempo necesario para los fines descritos en esta
+                política:
+              </p>
+              <ul className="list-disc list-inside ml-4 space-y-2">
+                <li>Datos de cuenta: Durante la vigencia de su suscripción + 7 años</li>
+                <li>Datos de pacientes: Durante la vigencia de su suscripción + 30 días</li>
+                <li>Logs de sistema: 2 años para fines de seguridad</li>
+              </ul>
+            </section>
+            <section>
+              <h3 className="text-lg font-semibold text-[#031749] mb-3">9. Cookies y Tecnologías Similares</h3>
+              <p className="mb-4">
+                Utilizamos cookies esenciales para el funcionamiento del servicio y cookies analíticas para mejorar la
+                experiencia del usuario. Puede gestionar sus preferencias de cookies en la configuración de su
+                navegador.
+              </p>
+            </section>
+            <section>
+              <h3 className="text-lg font-semibold text-[#031749] mb-3">
+                10. Contacto y Delegado de Protección de Datos
+              </h3>
+              <p className="mb-4">
+                Para ejercer sus derechos o realizar consultas sobre privacidad:
+                <br />
+                Email: info@dentasoftware.com
+                <br />
+                Teléfono: +593 97 884 7401
+              </p>
+            </section>
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   )
 }

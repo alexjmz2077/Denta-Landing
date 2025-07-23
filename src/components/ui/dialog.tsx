@@ -29,7 +29,7 @@ export function Dialog({ open, onOpenChange, children }: DialogProps) {
   if (!open) return null;
   
   const handleOverlayClick = () => onOpenChange(false);
-  const handleDialogClick = (e: MouseEvent) => e.stopPropagation();
+  const handleDialogClick = (e: MouseEvent<HTMLDivElement>) => e.stopPropagation();
 
   return (
     <div 

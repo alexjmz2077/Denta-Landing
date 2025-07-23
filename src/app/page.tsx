@@ -328,13 +328,13 @@ export default function DentaSoftwareLanding() {
                 <div className="flex items-center space-x-4">
                   <Image
                     src="/placeholder.svg?height=60&width=60"
-                    alt="Dra. "
+                    alt="Dra. Maria Sifuentes"
                     width={60}
                     height={60}
                     className="rounded-full"
                   />
                   <div>
-                    <CardTitle className="text-[#031749]">Dra. </CardTitle>
+                    <CardTitle className="text-[#031749]">Dra. Maria Sifuentes </CardTitle>
                     <CardDescription>Odontóloga General - Cuenca</CardDescription>
                   </div>
                 </div>

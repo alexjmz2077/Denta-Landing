@@ -27,17 +27,17 @@ interface DialogDescriptionProps {
 
 export function Dialog({ open, onOpenChange, children }: DialogProps) {
   if (!open) return null;
-  
+
   const handleOverlayClick = () => onOpenChange(false);
   const handleDialogClick = (e: MouseEvent<HTMLDivElement>) => e.stopPropagation();
 
   return (
-    <div 
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/50" 
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/50"
       onClick={handleOverlayClick}
     >
-      <div 
-        className="bg-white rounded-lg shadow-xl max-w-2xl w-full p-6 relative" 
+      <div
+        className="bg-white rounded-lg shadow-xl max-w-2xl w-full p-6 relative"
         onClick={handleDialogClick}
       >
         {children}

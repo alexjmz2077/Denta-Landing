@@ -9,8 +9,6 @@ import {
   Calendar,
   Users,
   FileText,
-  CreditCard,
-  Shield,
   Clock,
   CheckCircle,
   Star,
@@ -25,7 +23,6 @@ import {
   BarChart3,
   Phone,
   Mail,
-  MapPin,
 } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
@@ -322,7 +319,7 @@ export default function DentaSoftwareLanding() {
               <CardContent>
                 <p className="text-gray-600">
                    &quot;DentaSoftware ha revolucionado mi consultorio. Ahorro más de 4 horas diarias en tareas
-                  administrativas y mis pacientes están más satisfechos con el servicio. &quot;
+                  administrativas y mis pacientes están más satisfechos con el servicio.&quot;
                 </p>
               </CardContent>
             </Card>

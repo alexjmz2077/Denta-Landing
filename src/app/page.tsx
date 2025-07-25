@@ -116,7 +116,7 @@ export default function DentaSoftwareLanding() {
             <div className="relative">
               <div className="bg-white rounded-2xl shadow-2xl p-8">
                 <Image
-                  src="/placeholder.svg?height=400&width=600"
+                  src="/img/img_inicio.webp?height=400&width=600"
                   alt="DentaSoftware Dashboard"
                   width={600}
                   height={400}
@@ -244,11 +244,11 @@ export default function DentaSoftwareLanding() {
             </div>
             <div className="relative">
               <Image
-                src="/placeholder.svg?height=500&width=600"
+                src="/img/funcionalidades.webp?height=320&width=600"
                 alt="Funcionalidades DentaSoftware"
                 width={600}
-                height={500}
-                className="rounded-2xl shadow-xl w-full h-auto"
+                height={400}
+                className="rounded-2xl shadow-xl w-full h-auto max-h-134 object-cover"
               />
             </div>
           </div>
@@ -266,19 +266,11 @@ export default function DentaSoftwareLanding() {
           </div>
           <div className="max-w-4xl mx-auto">
             <div className="relative bg-white rounded-2xl p-2 shadow-2xl">
-              <div className="relative aspect-video bg-gray-900 rounded-xl overflow-hidden">
-                <Image
-                  src="/placeholder.svg?height=450&width=800"
-                  alt="Video Demo DentaSoftware"
-                  width={800}
-                  height={450}
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <Button size="lg" className="bg-white text-[#031749] hover:bg-gray-100 rounded-full w-20 h-20">
-                    <Play className="h-8 w-8 ml-1" />
-                  </Button>
-                </div>
+              <div className="relative aspect-video bg-gray-900 rounded-xl overflow-hidden flex items-center justify-center">
+                <video controls width={800} height={450}  className="rounded-xl w-full h-full">
+                  <source src="/api/video" type="video/mp4" />
+                  Tu navegador no soporta el video.
+                </video>
               </div>
             </div>
           </div>

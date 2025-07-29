@@ -32,6 +32,7 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } f
 export default function DentaSoftwareLanding() {
   const [showTerms, setShowTerms] = useState(false)
   const [showPrivacy, setShowPrivacy] = useState(false)
+  const [showAbout, setShowAbout] = useState(false)
 
   return (
     <div className="min-h-screen bg-white">
@@ -782,7 +783,7 @@ export default function DentaSoftwareLanding() {
       {/* Footer */}
       <footer className="bg-[#031749] text-white py-16">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-3 gap-8">
             <div>
               <div className="flex items-center space-x-2 mb-6">
                 <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
@@ -822,7 +823,7 @@ export default function DentaSoftwareLanding() {
                 </li>
               </ul>
             </div>
-            <div>
+            { /* <div>
               <h4 className="font-semibold mb-4">Soporte</h4>
               <ul className="space-y-2 text-blue-200">
                 <li>
@@ -846,27 +847,20 @@ export default function DentaSoftwareLanding() {
                   </Link>
                 </li>
               </ul>
-            </div>
+            </div> */}
             <div>
               <h4 className="font-semibold mb-4">Empresa</h4>
               <ul className="space-y-2 text-blue-200">
                 <li>
-                  <Link href="#" className="hover:text-white transition-colors">
+                  <button
+                    className="hover:text-white transition-colors bg-transparent text-blue-200"
+                    onClick={() => setShowAbout(true)}
+                    type="button">
                     Sobre Nosotros
-                  </Link>
+                  </button>
                 </li>
                 <li>
-                  <Link href="#" className="hover:text-white transition-colors">
-                    Blog
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="hover:text-white transition-colors">
-                    Carreras
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="hover:text-white transition-colors">
+                  <Link href="#contacto" className="hover:text-white transition-colors">
                     Contacto
                   </Link>
                 </li>
@@ -899,7 +893,10 @@ export default function DentaSoftwareLanding() {
 
       {/* Popup Términos de Servicio */}
       <Dialog open={showTerms} onOpenChange={setShowTerms}>
-        <DialogContent className="max-w-4xl max-h-[80vh] overflow-y-auto">
+        <DialogContent
+          className="max-w-4xl max-h-[80vh] overflow-y-auto"
+          onClose={() => setShowTerms(false)}
+        >
           <DialogHeader>
             <DialogTitle className="text-2xl font-bold text-[#031749] mb-4">
               Términos de Servicio - DentaSoftware
@@ -1000,7 +997,10 @@ export default function DentaSoftwareLanding() {
 
       {/* Popup Política de Privacidad */}
       <Dialog open={showPrivacy} onOpenChange={setShowPrivacy}>
-        <DialogContent className="max-w-4xl max-h-[80vh] overflow-y-auto">
+        <DialogContent
+          className="max-w-4xl max-h-[80vh] overflow-y-auto"
+          onClose={() => setShowPrivacy(false)}
+        >
           <DialogHeader>
             <DialogTitle className="text-2xl font-bold text-[#031749] mb-4">
               Política de Privacidad - DentaSoftware
@@ -1096,6 +1096,43 @@ export default function DentaSoftwareLanding() {
                 Email: info@dentasoftware.com
                 <br />
                 Teléfono: +593 97 884 7401
+              </p>
+            </section>
+          </div>
+        </DialogContent>
+      </Dialog>
+
+      {/* Popup Sobre Nosotros */}
+      <Dialog open={showAbout} onOpenChange={setShowAbout}>
+        <DialogContent
+          className="max-w-3xl max-h-[70vh] overflow-y-auto"
+          onClose={() => setShowAbout(false)}
+        >
+          <DialogHeader>
+            <DialogTitle className="text-2xl font-bold text-[#031749] mb-4">
+              Sobre Nosotros - DentaSoftware
+            </DialogTitle>
+            <DialogDescription className="text-gray-600">
+              Conoce quiénes somos y por qué elegimos transformar la gestión dental.
+            </DialogDescription>
+          </DialogHeader>
+          <div className="space-y-6 text-gray-700">
+            <section>
+              <h3 className="text-lg font-semibold text-[#031749] mb-3">Nuestra Misión</h3>
+              <p>
+                En DentaSoftware, ayudamos a consultorios dentales a digitalizar y optimizar su gestión diaria. Nuestra plataforma facilita la administración de pacientes, citas y tratamientos, permitiendo a los profesionales enfocarse en lo más importante: la salud de sus pacientes.
+              </p>
+            </section>
+            <section>
+              <h3 className="text-lg font-semibold text-[#031749] mb-3">Equipo</h3>
+              <p>
+                Somos un equipo comprometidos con la innovación y el soporte personalizado. Trabajamos cada día para ofrecerte una experiencia segura, eficiente y adaptada a las necesidades reales de tu consultorio.
+              </p>
+            </section>
+            <section>
+              <h3 className="text-lg font-semibold text-[#031749] mb-3">Compromiso</h3>
+              <p>
+                Creemos en la mejora continua y en el acompañamiento cercano a nuestros clientes. Tu éxito es nuestro objetivo.
               </p>
             </section>
           </div>

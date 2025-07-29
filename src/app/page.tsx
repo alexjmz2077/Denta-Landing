@@ -26,13 +26,19 @@ import {
 } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
-import { useState } from "react"
+import { useState } from "react";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 
 export default function DentaSoftwareLanding() {
   const [showTerms, setShowTerms] = useState(false)
   const [showPrivacy, setShowPrivacy] = useState(false)
   const [showAbout, setShowAbout] = useState(false)
+  const [nombre, setNombre] = useState("");
+  const [telefono, setTelefono] = useState("");
+  const [email, setEmail] = useState("");
+  const [consultorio, setConsultorio] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
 
   return (
     <div className="min-h-screen bg-white">
@@ -695,36 +701,83 @@ export default function DentaSoftwareLanding() {
                   <CardDescription>Completa el formulario y te contactaremos en menos de 24 horas</CardDescription>
                 </CardHeader>
                 <CardContent className="px-0 space-y-4">
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">Nombre *</label>
-                      <Input placeholder="Tu nombre completo" />
+                  <form
+                    onSubmit={async (e) => {
+                      e.preventDefault();
+                      setLoading(true);
+                      setSuccess(false);
+                      const data = [
+                        [nombre, telefono, email, consultorio]
+                      ];
+                      await fetch("https://v1.nocodeapi.com/alexjmz/google_sheets/zBFmVmWigNjkxJYf?tabId=Contacto", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify(data), // <--- SOLO el array, sin { data: ... }
+                      });
+                      setSuccess(true);
+                      setNombre("");
+                      setTelefono("");
+                      setEmail("");
+                      setConsultorio("");
+                      setLoading(false);
+                    }}
+                  >
+                    <div className="space-y-4">
+                      <div className="grid md:grid-cols-2 gap-4">
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700 mb-2">Nombre *</label>
+                          <Input
+                            placeholder="Tu nombre completo"
+                            value={nombre}
+                            onChange={e => setNombre(e.target.value)}
+                            required
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700 mb-2">Teléfono *</label>
+                          <Input
+                            placeholder="+593 900 000 000"
+                            value={telefono}
+                            onChange={e => setTelefono(e.target.value)}
+                            required
+                          />
+                        </div>
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-2">Email *</label>
+                        <Input
+                          type="email"
+                          placeholder="tu@email.com"
+                          value={email}
+                          onChange={e => setEmail(e.target.value)}
+                          required
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-2">Nombre del consultorio</label>
+                        <Input
+                          placeholder="Clínica Dental..."
+                          value={consultorio}
+                          onChange={e => setConsultorio(e.target.value)}
+                        />
+                      </div>
+                      <Button
+                        className="w-full bg-[#031749] hover:bg-[#031749]/90 text-lg py-3"
+                        type="submit"
+                        disabled={loading}
+                      >
+                        {loading ? "Enviando..." : "Solicitar Demo Gratuita"}
+                      </Button>
+                      {success && (
+                        <p className="text-green-600 text-center mt-2">
+                          ¡Formulario enviado correctamente! Te contactaremos pronto.
+                        </p>
+                      )}
+                      <p className="text-sm text-gray-500 text-center">
+                        Al enviar este formulario aceptas nuestros términos y condiciones
+                      </p>
                     </div>
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">Teléfono *</label>
-                      <Input placeholder="+593 900 000 000" />
-                    </div>
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Email *</label>
-                    <Input type="email" placeholder="tu@email.com" />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Nombre del consultorio</label>
-                    <Input placeholder="Clínica Dental..." />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Número de pacientes aproximado
-                    </label>
-                    <Input placeholder="Ej: 500 pacientes" />
-                  </div>
-                  <Button className="w-full bg-[#031749] hover:bg-[#031749]/90 text-lg py-3">
-                    Solicitar Demo Gratuita
-                  </Button>
-                  <p className="text-sm text-gray-500 text-center">
-                    Al enviar este formulario aceptas nuestros términos y condiciones
-                  </p>
+                  </form>
                 </CardContent>
               </Card>
             </div>

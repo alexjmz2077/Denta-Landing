@@ -33,6 +33,12 @@ export default function RootLayout({
     <html lang="es">
       <head>
         <link rel="icon" href="/favicon.ico" />
+        <meta property="og:title" content="DentaSoftware" />
+        <meta property="og:description" content="Software para consultorios dentales." />
+        <meta property="og:image" content="https://tudominio.com/img/img_inicio.webp" />
+        <meta property="og:url" content="https://dentasoftware.com" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://tudominio.com/img/img_inicio.webp" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden`}
